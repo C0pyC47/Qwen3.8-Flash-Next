@@ -1,0 +1,13 @@
+services:
+  llama.cpp:
+    build: ./llama.cpp
+    restart: unless-stopped
+    gpus: all
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./gguf:/gguf:ro
+    command: >
+      -m /gguf/${GGUF_FILE}
+      --mmproj /gguf/${MMPROJ_FILE}
+      -c ${CTX_SIZE}
