@@ -10,4 +10,5 @@ services:
     command: >
       -m /gguf/${GGUF_FILE}
       --mmproj /gguf/${MMPROJ_FILE}
+      -a Qwen3.8-Flash-Next
       -c ${CTX_SIZE}
